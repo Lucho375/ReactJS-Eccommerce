@@ -1,0 +1,36 @@
+.header{
+    /* position: fixed; */
+    width: 100%;
+    top: 0;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #737372;
+    height: 100px;
+}
+
+.nav-list{
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item{
+    padding-right: 40px;
+}
+
+.nav-link{
+    text-decoration: none;
+    color: white !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+}
+
+.nav-link:hover{
+    color: red !important;
+    transition: all 500ms;
+}
