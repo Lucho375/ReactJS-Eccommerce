@@ -1,0 +1,45 @@
+[
+    {
+        "id": 1,
+        "name": "RTX 3090",
+        "marca": "Gigabyte",
+        "price": 400,
+        "category": "Placas de video",
+        "images": [
+            "https://www.gigabyte.com/FileUpload/Global/WebPage/636/img/1.png", 
+            "https://www.gigabyte.com/FileUpload/Global/WebPage/636/img/2.png", 
+            "https://www.gigabyte.com/FileUpload/Global/WebPage/636/img/3.png",
+            "https://www.gigabyte.com/FileUpload/Global/WebPage/636/img/4.png",
+            "https://www.gigabyte.com/FileUpload/Global/WebPage/636/img/5.png",
+            "https://www.gigabyte.com/FileUpload/Global/WebPage/636/img/6.png",
+            "https://www.gigabyte.com/FileUpload/Global/WebPage/636/img/7.png",   
+            "https://www.gigabyte.com/FileUpload/Global/WebPage/636/img/8.png",
+            "https://www.gigabyte.com/FileUpload/Global/WebPage/636/img/9.png"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "RTX 3070",
+        "marca": "MSI",
+        "price": 550,
+        "category": "Placas de video",
+        "images": [
+            "https://asset.msi.com/resize/image/global/product/product_160516708705dd5f6377e11cba748c4e5caad64449.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png",
+            "https://asset.msi.com/resize/image/global/product/product_16036988629d55e2a540b254c63fdb2ad1d77eaf1e.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png",
+            "https://asset.msi.com/resize/image/global/product/product_160369886484ea0cc6bed7758cc70961239da7a408.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png",
+            "https://asset.msi.com/resize/image/global/product/product_16036988629efa1e731f242db6f1d22f918f510b2f.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "ROG-STRIX-1000G",
+        "marca": "Asus",
+        "price": 250,
+        "category": "Fuentes",
+        "images": [
+            "https://dlcdnwebimgs.asus.com/gain/0CB64E96-7BAF-446C-893E-E96BBF09A133/w1000/h732",
+            "https://dlcdnwebimgs.asus.com/gain/0EAD6D09-1FA9-487E-A69F-0CCC06902660/w1000/h732",
+            "https://dlcdnwebimgs.asus.com/gain/2BF79FB7-2DF2-4F97-B2E4-82F2499BD9C4/w1000/h732"
+        ]
+    }
+]

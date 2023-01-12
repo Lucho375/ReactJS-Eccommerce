@@ -1,0 +1,15 @@
+.itemCounter{
+    padding: 20px;
+}
+
+.counts{
+    background-color: #144272;
+    color: white;
+    font-weight: 700;
+    border-radius: 0.50rem;
+    border: none;
+    width: 30px;
+    cursor: pointer;
+    height: 20px;
+    margin: 0 5px;
+}

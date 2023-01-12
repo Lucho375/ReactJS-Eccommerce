@@ -1,8 +1,8 @@
 import widget from "./cart.svg"
 const CartWidget = () => {
     return (
-        <div style={{backgroundColor: "white", padding: "10px"}}>
-            <img src={widget} alt="" style={{ width: "30px"}} />
+        <div style={{color: "white"}}>
+            <img src={widget} alt="" style={{ width: "40px"}} />
             0
         </div>
     )
