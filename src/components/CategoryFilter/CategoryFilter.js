@@ -7,7 +7,7 @@ const CategoryFilter = () => {
             <h3>Filtrar por categoria</h3>
             <ul className="filter">
                 <li><Link to="/products" className="filter__link--remove">Borrar filtro</Link></li>
-                <li><NavLink className={({ isActive }) => isActive ? "filter__link--active" : "filter__link"} to="../category/Placas de video">Placas de video</NavLink></li>
+                <li><NavLink className={({ isActive }) => isActive ? "filter__link--active" : "filter__link"} to="../category/placas de video">Placas de video</NavLink></li>
                 <li><NavLink className={({ isActive }) => isActive ? "filter__link--active" : "filter__link"} to="../category/fuentes">Fuentes</NavLink></li>
                 <li><NavLink className={({ isActive }) => isActive ? "filter__link--active" : "filter__link"} to="../category/procesadores">Procesadores</NavLink></li>
             </ul>

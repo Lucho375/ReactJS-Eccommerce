@@ -5,7 +5,7 @@ const products = [
         marca: "Gigabyte",
         price: 400,
         stock: 3,
-        category: "Placas de video",
+        category: "placas de video",
         images: [
             "https://www.gigabyte.com/FileUpload/Global/WebPage/636/img/1.png",
             "https://www.gigabyte.com/FileUpload/Global/WebPage/636/img/2.png",
@@ -24,7 +24,7 @@ const products = [
         marca: "MSI",
         stock: 3,
         price: 550,
-        category: "Placas de video",
+        category: "placas de video",
         images: [
             "https://asset.msi.com/resize/image/global/product/product_160516708705dd5f6377e11cba748c4e5caad64449.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png",
             "https://asset.msi.com/resize/image/global/product/product_16036988629d55e2a540b254c63fdb2ad1d77eaf1e.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png",
@@ -62,7 +62,7 @@ const products = [
         marca: "Intel",
         stock: 2,
         price: 550,
-        category: "procesadores",
+        category: "Procesadores",
         images: [
             "https://m.media-amazon.com/images/I/61qUfPKfqJL._AC_SX679_.jpg",
             "https://m.media-amazon.com/images/I/61EXfoqgfYL._AC_SL1200_.jpg",
