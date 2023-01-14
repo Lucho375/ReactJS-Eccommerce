@@ -10,6 +10,7 @@ const ItemListContainer = ({ greeting }) => {
     const { categoryId } = useParams()
 
     useEffect(() => {
+        setLoading(true)
         const asyncFunction = categoryId ? getProductByCat : getData;
         asyncFunction(categoryId)
         .then(res => {
