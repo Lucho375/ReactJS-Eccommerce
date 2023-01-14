@@ -20,3 +20,11 @@
     font-size: 30px;
     margin: 5px;
 }
+
+.addToCart{
+    color: #FFF;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #144272;
+    margin-left: 10px;
+}

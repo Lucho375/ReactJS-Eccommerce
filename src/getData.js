@@ -1,4 +1,3 @@
-
 const products = [
     {
         id: "1",
@@ -6,7 +5,7 @@ const products = [
         marca: "Gigabyte",
         price: 400,
         stock: 3,
-        category: "placas-de-video",
+        category: "Placas de video",
         images: [
             "https://www.gigabyte.com/FileUpload/Global/WebPage/636/img/1.png",
             "https://www.gigabyte.com/FileUpload/Global/WebPage/636/img/2.png",
@@ -25,7 +24,7 @@ const products = [
         marca: "MSI",
         stock: 3,
         price: 550,
-        category: "placas-de-video",
+        category: "Placas de video",
         images: [
             "https://asset.msi.com/resize/image/global/product/product_160516708705dd5f6377e11cba748c4e5caad64449.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png",
             "https://asset.msi.com/resize/image/global/product/product_16036988629d55e2a540b254c63fdb2ad1d77eaf1e.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png",
@@ -73,13 +72,10 @@ const products = [
 ]
 
 export async function getData() {
-    // const res = await fetch("./products.json");
-    // const data = await res.json()
-    // return data;
     return new Promise((res, rej) => {
         setTimeout(() => {
             res(products)
-        }, 500)
+        }, 1000)
     })
 }
 
@@ -87,7 +83,7 @@ export async function getProductById(id) {
     return new Promise((res, rej) => {
         setTimeout(() => {
             res(products.find(e => e.id === id))
-        }, 500)
+        }, 1000)
     })
 }
 
@@ -95,6 +91,6 @@ export const getProductByCat = (cat) => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(products.filter(prod => prod.category === cat))
-        }, 500)
+        }, 1000)
     })
 }

@@ -1,33 +1,29 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getData, getProductByCat } from "../../getData";
-import ProductsList from "../ItemList/ItemList";
+import Loading from "../Loading/Loading"
+import ItemList from "../ItemList/ItemList";
 
 const ItemListContainer = ({ greeting }) => {
-    const [data, setData] = useState([]);
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true)
     const { categoryId } = useParams()
 
     useEffect(() => {
-
-        const onResize = ()=>{
-            console.log("cambioo de tamaño pantalla")
-        }
-        window.addEventListener("resize", onResize)
-
-        return () => window.removeEventListener("resize", onResize);
-    }, [])
-
-    useEffect(() => {
         const asyncFunction = categoryId ? getProductByCat : getData;
-        asyncFunction(categoryId).then(res => {
-            setData(res)
+        asyncFunction(categoryId)
+        .then(res => {
+                setProducts(res)
+                setLoading(false)
         })
     }, [categoryId])
 
     return (
         <div>
-            <h1 style={{ textAlign: "center" }}>{greeting}</h1>
-            <ProductsList products={data} />
+            <h1 style={{ textAlign: "center" }}>{categoryId ? `Categoria:  ${categoryId} ` : greeting}</h1>
+            {
+                loading ? <Loading /> : <ItemList products={products} />
+            }
         </div>
     )
 }

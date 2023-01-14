@@ -25,34 +25,3 @@
 .product__info{
     padding-left: 30px;
 }
-.filter__container{
-    border: 2px solid white;
-    margin: 20px 0;
-    padding: 20px;
-}
-
-.filter{
-    display: flex;
-    list-style: none;
-    justify-content: space-between;
-    margin: 20px 0;
-}
-
-.link{
-    padding: 10px;
-    background: rgb(158, 154, 154);
-    font-weight: bold;
-    border-radius: 5px;
-    margin: 10px;
-}
-
-
-.active{
-    padding: 10px;
-    background: rgb(158, 154, 154);
-    font-weight: bold;
-    border-radius: 5px;
-    border: 2px solid red;
-    margin: 10px;
-}
-

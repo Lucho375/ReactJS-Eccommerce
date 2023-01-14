@@ -33,7 +33,7 @@ const Slider = ({ arr }) => {
             <div className="slider__container">
                 <img className="slider__container__arrow" src={left} onClick={prev} alt="left arrow" />
                 <img className={`slider__container__img ${active}`} src={arr[currentIndex]} alt="product" />
-                <img className="slider__container__arrow" src={right} onClick={next} alt="right arrow"/>
+                <img className="slider__container__arrow" src={right} onClick={next} alt="right arrow" />
             </div>
             <div className="slider__selector">
                 {
