@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import left from "./left.png"
 import right from "./right.png"
 import "./Slider.css"
@@ -8,24 +8,25 @@ const Slider = ({ arr }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [active, setActive] = useState("slider__container__img--active")
 
+    // useEffect(()=>{
+
+    // },[currentIndex])
+
     const prev = () => {
         const firstImage = currentIndex === 0;
         const newIndex = firstImage ? arr.length - 1 : currentIndex - 1;
         setActive("");
-        setTimeout(() => {
-            setCurrentIndex(newIndex)
-            setActive(active)
-        }, 500)
+        setCurrentIndex(newIndex)
+        setTimeout(() => setActive(active), 500)
+
     }
 
     const next = () => {
         const lastImage = currentIndex === arr.length - 1;
         const newIndex = lastImage ? 0 : currentIndex + 1;
         setActive("")
-        setTimeout(() => {
-            setCurrentIndex(newIndex)
-            setActive(active)
-        }, 500)
+        setCurrentIndex(newIndex)
+        setTimeout(() => setActive(active), 500)
     }
 
     return (
