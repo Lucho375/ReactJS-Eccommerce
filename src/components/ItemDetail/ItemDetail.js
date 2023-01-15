@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const ItemDetail = ({ images, name, price, stock }) => {
     const [quantity, setQuantity] = useState(0)
-
+    document.title = name
     const handleAdd = (qty) => {
         setQuantity(qty)
     }
@@ -17,7 +17,7 @@ const ItemDetail = ({ images, name, price, stock }) => {
             <Slider arr={images} />
             <div className="card__content">
                 <h2 className="card__title">{name}</h2>
-                <span>Precio: us${price}</span>
+                <span className="card__price">Precio: us${price}</span>
                 {
                     quantity > 0 ? (<Link to="/cart"><Button text={"Terminar Compra"}></Button></Link>) : (<ItemCount stock={stock} onAdd={handleAdd} />)
                 }

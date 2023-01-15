@@ -4,7 +4,7 @@ const products = [
         name: "RTX 3090",
         marca: "Gigabyte",
         price: 400,
-        stock: 3,
+        stock: 5,
         category: "placas de video",
         images: [
             "https://www.gigabyte.com/FileUpload/Global/WebPage/636/img/1.png",
@@ -36,7 +36,7 @@ const products = [
         id: "3",
         name: "ROG-STRIX-1000G",
         marca: "Asus",
-        stock: 5,
+        stock: 0,
         price: 250,
         category: "fuentes",
         images: [
@@ -44,7 +44,7 @@ const products = [
             "https://dlcdnwebimgs.asus.com/gain/0EAD6D09-1FA9-487E-A69F-0CCC06902660/w1000/h732",
             "https://dlcdnwebimgs.asus.com/gain/2BF79FB7-2DF2-4F97-B2E4-82F2499BD9C4/w1000/h732"
         ]
-    },{
+    }, {
         id: "4",
         name: "Ryzen 9 5900X",
         marca: "AMD",

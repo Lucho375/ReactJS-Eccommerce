@@ -12,19 +12,18 @@ const ItemListContainer = ({ greeting }) => {
     useEffect(() => {
         setLoading(true)
         const asyncFunction = categoryId ? getProductByCat : getData;
+        document.title = categoryId || "Ecommerce"
         asyncFunction(categoryId)
-        .then(res => {
+            .then(res => {
                 setProducts(res)
                 setLoading(false)
-        })
+            })
     }, [categoryId])
 
     return (
         <div>
             <h1 style={{ textAlign: "center" }}>{categoryId ? `Categoria:  ${categoryId} ` : greeting}</h1>
-            {
-                loading ? <Loading /> : <ItemList products={products} />
-            }
+            {loading ? <Loading /> : <ItemList products={products} />}
         </div>
     )
 }
