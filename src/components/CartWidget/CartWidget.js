@@ -1,10 +1,14 @@
+import { Link } from "react-router-dom";
 import widget from "./cart.svg"
-const CartWidget = () => {
+const CartWidget = ({ totalQuantity }) => {
+
     return (
-        <div style={{color: "white"}}>
-            <img src={widget} alt="" style={{ width: "40px"}} />
-            0
-        </div>
+        <Link to="./cart">
+            <div style={{ color: "white" }}>
+                <img src={widget} alt="" style={{ width: "40px" }} />
+                {totalQuantity}
+            </div>
+        </Link>
     )
 }
 

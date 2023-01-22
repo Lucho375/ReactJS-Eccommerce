@@ -1,8 +1,9 @@
+import { prettyDOM } from "@testing-library/react";
 import { useState } from "react";
 import Button from "../Button/Button";
 import "./ItemCount.css";
 
-const ItemCount = ({ initial = 1, stock, onAdd }) => {
+const ItemCount = ({ initial = 1, stock = 0, onAdd }) => {
     const [quantity, setQuantity] = useState(initial);
 
     const handleClickRes = () => {

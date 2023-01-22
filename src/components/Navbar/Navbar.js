@@ -1,8 +1,12 @@
+import { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget";
+import { CartContext } from "../../Context/CartContext";
 import "./Navbar.css";
 
 const Navbar = () => {
+
+    const { totalQuantity } = useContext(CartContext)
 
     return (
         <header className="header">
@@ -21,7 +25,7 @@ const Navbar = () => {
                         <NavLink className={({ isActive }) => isActive ? "active" : "nav-link"} to="/contact">Contacto</NavLink>
                     </li>
                 </ul>
-                <CartWidget />
+                <CartWidget totalQuantity={totalQuantity} />
             </nav>
         </header>
     )
