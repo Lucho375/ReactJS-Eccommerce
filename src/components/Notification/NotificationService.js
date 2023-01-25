@@ -1,4 +1,4 @@
-import { useState, createContext, useEffect } from 'react';
+import { useState, createContext } from 'react';
 export const NotificationContext = createContext();
 
 const Notification = ({ message, type }) => {

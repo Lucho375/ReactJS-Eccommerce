@@ -1,0 +1,66 @@
+.contact__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    height: 100%;
+    color: white;
+
+    button {
+        margin-top: 20px;
+    }
+
+    .contact__form__label {
+        display: flex;
+        flex-direction: column;
+        text-align: start;
+        padding: 5px;
+        font-size: 20px;
+
+        span {
+            margin-bottom: 8px;
+            padding: 5px;
+        }
+    }
+
+    .contact__form__input {
+        padding: 10px;
+        background-color: rgb(14, 58, 109);
+        width: 310px;
+        border: none;
+        color: white;
+        border-radius: 5px;
+        box-shadow: inset 0px;
+
+        &:focus {
+            outline: none;
+        }
+
+        &:target {
+            color: red;
+        }
+
+        &:-webkit-autofill,
+        :-webkit-autofill:hover, 
+        :-webkit-autofill:focus, 
+        :-webkit-autofill:active  {
+            -webkit-text-fill-color: white;
+            -webkit-box-shadow: 0 0 0 30px rgb(14, 58, 109) inset !important;
+        }
+    }
+
+    textarea {
+        margin-top: 5px;
+        padding: 10px;
+        background-color: rgb(14, 58, 109);
+        border: none;
+        color: white;
+        border-radius: 5px;
+        resize: none;
+        line-height: 20px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}

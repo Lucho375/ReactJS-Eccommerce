@@ -62,7 +62,7 @@ const products = [
         marca: "Intel",
         stock: 2,
         price: 550,
-        category: "Procesadores",
+        category: "procesadores",
         images: [
             "https://m.media-amazon.com/images/I/61qUfPKfqJL._AC_SX679_.jpg",
             "https://m.media-amazon.com/images/I/61EXfoqgfYL._AC_SL1200_.jpg",

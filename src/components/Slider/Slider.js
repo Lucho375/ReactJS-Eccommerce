@@ -12,20 +12,20 @@ const Slider = ({ arr }) => {
         const firstImage = currentIndex === 0;
         const newIndex = firstImage ? arr.length - 1 : currentIndex - 1;
         setActive("")
-        setTimeout(()=> {
+        setTimeout(() => {
             setCurrentIndex(newIndex)
             setActive(active)
-        },600)
+        }, 600)
     }
 
     const nextSlide = () => {
         const lastImage = currentIndex === arr.length - 1;
         const newIndex = lastImage ? 0 : currentIndex + 1;
         setActive("")
-        setTimeout(()=> {
+        setTimeout(() => {
             setCurrentIndex(newIndex)
             setActive(active)
-        },600)
+        }, 600)
     }
 
     return (

@@ -15,7 +15,7 @@ const Cart = () => {
         setNotification(`Borrado ${e.name} del carrito`, "success", 2)
     }
 
-    if (cart.length == 0) return <h1>Carrito vacio, agregar productos</h1>
+    if (cart.length === 0) return <h1>Carrito vacio, agregar productos</h1>
     
     return (
         <section className="cart__container">
@@ -35,7 +35,7 @@ const Cart = () => {
                             <td>{e.name}</td>
                             <td>{e.quantity}</td>
                             <td>${e.price * e.quantity}</td>
-                            <td><img style={{ cursor: "pointer" }} src={remove} onClick={() => handleClick(e)} /></td>
+                            <td><img style={{ cursor: "pointer" }} src={remove} onClick={() => handleClick(e)} alt={e.name}/></td>
                         </tr>
                     )
                     )}

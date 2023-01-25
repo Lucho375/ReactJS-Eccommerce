@@ -1,4 +1,3 @@
-import { prettyDOM } from "@testing-library/react";
 import { useState } from "react";
 import Button from "../Button/Button";
 import "./ItemCount.css";
