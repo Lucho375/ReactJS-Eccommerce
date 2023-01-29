@@ -9,11 +9,12 @@ import Button from "../Button/Button";
 import InputLabel from "../Contact/InputLabel";
 
 const Checkout = () => {
-    const [loading, setLoading] = useState(false)
-    const { cart, total, clearCart } = useContext(CartContext)
-    const [order, setOrder] = useState("")
+    const [loading, setLoading] = useState(false);
+    const { cart, total, clearCart } = useContext(CartContext);
+    const [order, setOrder] = useState("");
     const navigate = useNavigate();
-    const { values, onChange, resetInputs } = useForm({})
+    const { values, onChange, resetInputs } = useForm({});
+    const [error, setError] = useState("");
 
     const handleChange = (e) => {
         onChange(e)
@@ -58,7 +59,8 @@ const Checkout = () => {
                 navigate("/")
             }, 5000)
         } else {
-            return <h1>No hay stock del producto</h1>
+            setError("Hay un producto sin stock, vuelva a productos");
+            clearCart();
         }
     }
 
@@ -67,7 +69,11 @@ const Checkout = () => {
     }
 
     if (order) {
-        return <h2>Numero de orden: {order}</h2>
+        return <h1>Numero de orden: {order}</h1>
+    }
+
+    if(error){
+        return <h1>{error}</h1>
     }
 
     return (
