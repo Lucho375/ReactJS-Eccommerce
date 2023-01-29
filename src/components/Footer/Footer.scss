@@ -1,0 +1,45 @@
+.footer__container {
+    width: 100%;
+    background-color: #1d507c;
+    height: 200px;
+    margin-top: 2rem;
+
+    &__section {
+        height: 200px;
+        justify-items: center;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        align-items: center;
+    }
+
+    &__payments {
+        &__card {
+            width: 65px;
+            padding: 0 3px;
+            border-radius: 5px;
+        }
+    }
+}
+
+.footer__contact {
+
+    &__logos {
+        width: 30px;
+        height: 30px;
+    }
+    &__sections{
+        display: flex;
+        align-items: center;
+        p{
+            padding-left: 10px;
+        }
+    }
+}
+
+.Links__footer {
+    display: block;
+}
+
+div h3 {
+    margin-bottom: 15px;
+}
