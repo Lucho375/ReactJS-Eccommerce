@@ -58,7 +58,7 @@ const Checkout = () => {
                 navigate("/")
             }, 5000)
         } else {
-            console.error("hay productos sin stock");
+            return <h1>No hay stock del producto</h1>
         }
     }
 
