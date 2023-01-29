@@ -59,6 +59,7 @@ const Checkout = () => {
                 navigate("/")
             }, 5000)
         } else {
+            setLoading(false)
             setError("Hay un producto sin stock, vuelva a productos");
             clearCart();
         }
