@@ -16,11 +16,16 @@ const CartItem = (item) => {
         setNotification(`Borrado ${e.name} del carrito`, "success", 2)
     }
 
-    const handleClickRes = (prod) => {
+    const handleClickDecrease = (prod) => {
         decreaseQuantity(prod)
     }
-    const handleClickSum = (prod) => {
-        increaseQuantity(prod)
+
+    const handleClickIncrease = (prod) => {
+        if (prod.quantity < prod.stock) {
+            increaseQuantity(prod)
+        } else {
+            setNotification(`No hay mas stock de ${prod.name}`, "error", 2)
+        }
     }
 
     return (
@@ -28,9 +33,9 @@ const CartItem = (item) => {
             <img src={item.images[0]} className="cart__item__image" />
             <h4 className="cart__item__title">{item.name}</h4>
             <div className="cart__item__commands">
-                <img src={minus} className="cart__item__commands__img" onClick={() => handleClickRes(item)} />
+                <img src={minus} className="cart__item__commands__img" onClick={() => handleClickDecrease(item)} />
                 <span className="cart__item__commands__quantity">{item.quantity}</span>
-                <img src={plus} className="cart__item__commands__img" onClick={() => handleClickSum(item)} />
+                <img src={plus} className="cart__item__commands__img" onClick={() => handleClickIncrease(item)} />
             </div>
             <span className="cart__item__price">${item.price}</span>
             <img className="cart__item__remove" src={remove} onClick={() => handleClick(item)} />

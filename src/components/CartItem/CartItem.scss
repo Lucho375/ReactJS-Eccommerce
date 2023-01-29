@@ -1,21 +1,21 @@
 .cart__item {
     display: grid;
-    grid-template-columns: repeat(5, 165px);
+    grid-template-columns: repeat(5, 155px);
     padding: 0 20px;
     color: black;
     align-items: center;
     margin-bottom: 20px;
     border-radius: 5px;
-    align-content: center;
     justify-items: center;
     border-left: #3894e6 7px solid;
     box-shadow: 3px 3px 3px #3894e6;
     background-color: rgb(248, 247, 247);
-    height: 120px;
+    height: 110px;
 
     &__image {
-        width: 110px;
-        height: auto;
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
     }
 
     &__title {

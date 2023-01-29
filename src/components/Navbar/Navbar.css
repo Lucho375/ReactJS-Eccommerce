@@ -1,9 +1,9 @@
-.header{
+.header {
     width: 100%;
     margin-bottom: 2rem;
 }
 
-.nav{
+.nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -11,31 +11,35 @@
     height: 100px;
 }
 
-.nav-list{
+.nav-list {
     display: flex;
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
-.active{
+.active {
     background-color: rgb(62, 15, 230);
     padding: 10px;
     border-radius: 5px;
+    font-size: 20px;
+    font-weight: 500;
 }
 
-.nav-item{
+.nav-item {
     padding-right: 40px;
 }
 
-.nav-link{
+.nav-link {
     text-decoration: none;
-    color: white !important;
-    font-size: 18px !important;
-    font-weight: 500 !important;
+    display: block;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
 }
 
-.nav-link:hover{
-    color: red !important;
+.nav-link:hover {
+    color: rgb(245, 199, 199);
+    scale: 1.1;
     transition: all 500ms;
 }
