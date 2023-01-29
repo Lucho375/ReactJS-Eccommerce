@@ -14,8 +14,8 @@ const ItemDetailContainer = () => {
         const docRef = doc(db, "products", productId)
         getDoc(docRef).then(response => {
             const data = response.data()
-            const productAdaptated = { id: response.id, ...data }
-            setProduct(productAdaptated)
+            const firestoreProduct = { id: response.id, ...data }
+            setProduct(firestoreProduct)
         }).catch(err => console.log(err))
             .finally(() => setLoading(false))
     }, [productId])

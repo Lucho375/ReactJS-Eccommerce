@@ -5,14 +5,19 @@
 }
 
 .slider__container__img{
-    width: 400px;
-    height: auto;
+    width: auto;
+    height: 400px;
     opacity: 0;
     transition: opacity 700ms ease-in-out;
 }
 
 .slider__container__arrow{
     cursor: pointer;
+    transition: all 200ms linear;
+}
+
+.slider__container__arrow:hover{
+    transform: scaleX(1.2);
 }
 
 @keyframes opacity{

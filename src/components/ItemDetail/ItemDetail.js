@@ -15,7 +15,7 @@ const ItemDetail = ({ id, images, name, price, stock }) => {
 
     const handleAdd = (quantity) => {
         setQuantity(quantity)
-        addItem({ id, name, price, quantity })
+        addItem({ id, name, price, quantity, images, stock })
         setNotification(`Agregado al carrito ${name}`, "success", 3)
     }
 

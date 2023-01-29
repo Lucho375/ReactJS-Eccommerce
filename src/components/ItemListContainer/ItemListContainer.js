@@ -12,9 +12,11 @@ const ItemListContainer = ({ greeting }) => {
 
     useEffect(() => {
         setLoading(true)
-        const collectionRef = categoryId ? query(collection(db, "products"), where('category', '==', categoryId)) : collection(db, "products")
-        
-        getDocs(collectionRef).then(response => {
+        const database = collection(db, "products")
+        const productsQuery = where('category', '==', categoryId)
+        const productsFromFirestore = categoryId ? query(database, productsQuery ) : database
+
+        getDocs(productsFromFirestore).then(response => {
             const { docs } = response;
             const firestoreProducts = docs.map(doc => {
                 const data = doc.data()

@@ -1,9 +1,8 @@
 import CategoryFilter from "../CategoryFilter/CategoryFilter";
-import Item from "./Item";
+import Item from "../Item/Item";
 import "./ItemList.css"
 
 const ItemList = ({ products }) => {
-
     return (
         <>
             <CategoryFilter />

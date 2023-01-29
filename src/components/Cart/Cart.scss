@@ -1,0 +1,14 @@
+.cart__container {
+    font-size: 20px;
+
+    &__title {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    &__total {
+        display: flex;
+        justify-content: space-between;
+        margin: 50px 0;
+    }
+}
