@@ -1,6 +1,6 @@
 import CategoryFilter from "../CategoryFilter/CategoryFilter";
 import Item from "../Item/Item";
-import "./ItemList.css"
+import "./ItemList.scss"
 
 const ItemList = ({ products }) => {
     return (

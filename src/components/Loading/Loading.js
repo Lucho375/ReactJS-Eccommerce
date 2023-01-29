@@ -1,11 +1,8 @@
-import "./Loading.css"
+import "./Loading.scss"
 const Loading = () => {
     return (
-        <div className="lds-ring">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+        <div className="loader__container">
+            <span className="loader__container__spinner"></span>
         </div>
     )
 }

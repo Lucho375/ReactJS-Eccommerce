@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import widget from "./cart.svg"
-import "./CartWidget.css"
+import "./CartWidget.scss"
 
 const CartWidget = ({ totalQuantity }) => {
     return (

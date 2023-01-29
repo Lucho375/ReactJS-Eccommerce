@@ -3,8 +3,10 @@ import { useState } from "react";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../Context/CartContext";
-import { useForm } from "../../customHooks";
+import { useForm } from "../../hooks/hooks";
 import { db } from "../../services/firebase/firebaseConfig";
+import Button from "../Button/Button";
+import InputLabel from "../Contact/InputLabel";
 
 const Checkout = () => {
     const [loading, setLoading] = useState(false)
@@ -63,26 +65,49 @@ const Checkout = () => {
     if (loading) {
         return <h1>Generando orden...</h1>
     }
-    
-    if(order){
+
+    if (order) {
         return <h2>Numero de orden: {order}</h2>
     }
 
     return (
         <>
             <h1>Checkout</h1>
-            <form style={{ display: "flex", flexDirection: "column", padding: 50 }}>
-                <label htmlFor="name">Nombre</label>
-                <input type="text" name="name" onChange={handleChange} value={values.name || ""} />
-
-                <label htmlFor="email">Email</label>
-                <input type="email" name="email" onChange={handleChange} value={values.email || ""} />
-
-                <label htmlFor="phone">Telefono</label>
-                <input type="tel" name="phone" onChange={handleChange} value={values.phone || ""} />
-
+            <form className="contact__form">
+                <InputLabel
+                    type="text"
+                    name="name"
+                    onChange={handleChange}
+                    value={values.name || ""}
+                    placeholder="Ingresa tu nombre">
+                    Nombre
+                </InputLabel>
+                <InputLabel
+                    type="text"
+                    name="lastName"
+                    onChange={handleChange}
+                    value={values.lastName || ""}
+                    placeholder="Ingresa tu apellido">
+                    Apellido
+                </InputLabel>
+                <InputLabel
+                    type="email"
+                    name="email"
+                    onChange={handleChange}
+                    value={values.email || ""}
+                    placeholder="Ingresa tu email">
+                    Email
+                </InputLabel>
+                <InputLabel
+                    type="phone"
+                    name="phone"
+                    onChange={handleChange}
+                    value={values.phone || ""}
+                    placeholder="Ingresa tu Telefono">
+                    Telefono
+                </InputLabel>
             </form>
-            <button onClick={createOrder}>Generar orden</button>
+            <Button onClick={createOrder} text="Generar orden" />
         </>
     )
 }

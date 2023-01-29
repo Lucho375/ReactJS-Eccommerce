@@ -1,4 +1,4 @@
-import "./ItemDetail.css";
+import "./ItemDetail.scss";
 import Slider from "../Slider/Slider";
 import Button from "../Button/Button";
 import ItemCount from "../ItemCount/ItemCount";

@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget";
 import { CartContext } from "../../Context/CartContext";
-import "./Navbar.css";
+import "./Navbar.scss";
 
 const Navbar = () => {
 
@@ -10,19 +10,19 @@ const Navbar = () => {
 
     return (
         <header className="header">
-            <nav className="nav">
+            <nav className="header__nav">
                 <Link to="/">
                     <h1>Logo</h1>
                 </Link>
-                <ul className="nav-list">
-                    <li className="nav-item">
-                        <NavLink className={({ isActive }) => isActive ? "active" : "nav-link"} to="/">Inicio</NavLink>
+                <ul className="header__nav__list">
+                    <li className="header__nav__list__item">
+                        <NavLink className={({ isActive }) => isActive ? "header__nav__list__link--active" : "header__nav__list__link"} to="/">Inicio</NavLink>
                     </li>
-                    <li className="nav-item">
-                        <NavLink className={({ isActive }) => isActive ? "active" : "nav-link"} to="/products">Productos</NavLink>
+                    <li className="header__nav__list__item">
+                        <NavLink className={({ isActive }) => isActive ? "header__nav__list__link--active" : "header__nav__list__link"} to="/products">Productos</NavLink>
                     </li>
-                    <li className="nav-item">
-                        <NavLink className={({ isActive }) => isActive ? "active" : "nav-link"} to="/contact">Contacto</NavLink>
+                    <li className="header__nav__list__item">
+                        <NavLink className={({ isActive }) => isActive ? "header__nav__list__link--active" : "header__nav__list__link"} to="/contact">Contacto</NavLink>
                     </li>
                 </ul>
                 <CartWidget totalQuantity={totalQuantity} />

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import left from "./left.png"
 import right from "./right.png"
-import "./Slider.css"
+import "./Slider.scss"
 import SliderSelect from "./SliderSelect";
 
 const Slider = ({ arr }) => {
@@ -38,7 +38,7 @@ const Slider = ({ arr }) => {
             <div className="dots__container">
                 {
                     arr.map((img, index) => (
-                        <SliderSelect onClick={() => setCurrentIndex(index)} key={index} className={index === currentIndex ? "slider__dot--active" : "slider__dot"} />
+                        <SliderSelect onClick={() => setCurrentIndex(index)} key={index} className={index === currentIndex ? "dots__container__dot--active" : "dots__container__dot"} />
                     ))
                 }
             </div>
