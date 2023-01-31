@@ -7,7 +7,7 @@ const Notification = ({ message, type }) => {
         top: 120,
         right: 50,
         fontWeight: "bold",
-        backgroundColor: type === "success" ? "green" : "red",
+        backgroundColor: type === "success" ? "rgb(46, 125, 50)" : "red",
         color: "white",
         borderRadius: 5,
         padding: "10px 20px 10px 20px",

@@ -15,7 +15,7 @@ const Footer = () => {
                     <h3>Categorias</h3>
                     <Link to="/" className="Links__footer">Inicio</Link>
                     <Link to="/products" className="Links__footer">Todos los productos</Link>
-                    <Link to="/category/placas de video" className="Links__footer">Placas de video</Link>
+                    <Link to="/category/placas de video" preventScrollReset={true} className="Links__footer">Placas de video</Link>
                     <Link to="/category/fuentes" className="Links__footer">Fuentes</Link>
                     <Link to="/category/procesadores" className="Links__footer">Procesadores</Link>
                 </div>

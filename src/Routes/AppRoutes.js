@@ -4,8 +4,8 @@ import ItemDetailContainer from "../components/ItemDetail/ItemDetailContainer";
 import Contact from "../components/Contact/Contact";
 import Cart from "../components/Cart/Cart";
 import Checkout from "../components/Checkout/Checkout";
-import Prueba from "../Prueba";
 import Home from "../components/Home/Home";
+import Prueba from "../Prueba";
 
 const AppRoutes = () => {
     return (
@@ -17,7 +17,7 @@ const AppRoutes = () => {
             <Route path='/contact' element={<Contact />} />
             <Route path='/cart' element={<Cart />} />
             <Route path='/checkout' element={<Checkout />} />
-            <Route path='/prueba' element={<><h1 style={{ marginBottom: 20 }}>Subir producto</h1> <Prueba /></>} />
+            <Route path='/prueba' element={<Prueba />} />
         </Routes>
     )
 }

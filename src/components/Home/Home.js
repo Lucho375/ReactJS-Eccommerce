@@ -32,7 +32,7 @@ const Home = () => {
 
     return (
         <>
-            <Slider arr={images} />
+            <Slider arr={images} autoSlide={true} />
         </>
     )
 }
