@@ -48,4 +48,19 @@
             -webkit-box-shadow: 0 0 0 30px rgb(14, 58, 109) inset !important;
         }
     }
+
+    textarea {
+        margin-top: 5px;
+        padding: 10px;
+        background-color: rgb(14, 58, 109);
+        border: none;
+        color: white;
+        border-radius: 5px;
+        resize: none;
+        line-height: 20px;
+
+        &:focus {
+            outline: none;
+        }
+    }
 }

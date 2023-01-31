@@ -15,7 +15,6 @@ const Slider = ({ arr, autoSlide = false }) => {
             const auto = setInterval(() => {
                 setCurrentIndex(newIndex)
             }, 5000)
-            console.log(currentIndex)
             return () => clearInterval(auto)
         }
 
