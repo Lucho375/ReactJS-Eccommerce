@@ -7,6 +7,7 @@ import { useForm } from "../../hooks/hooks";
 import { db } from "../../services/firebase/firebaseConfig";
 import Button from "../Button/Button";
 import InputLabel from "../Contact/InputLabel";
+import { NotificationContext } from "../Notification/NotificationService";
 
 const Checkout = () => {
     const [loading, setLoading] = useState(false);
@@ -15,6 +16,7 @@ const Checkout = () => {
     const navigate = useNavigate();
     const { values, onChange, resetInputs } = useForm({});
     const [error, setError] = useState("");
+    const setNotification = useContext(NotificationContext)
 
     const handleChange = (e) => {
         onChange(e)
@@ -55,6 +57,7 @@ const Checkout = () => {
             clearCart();
             setLoading(false)
             resetInputs();
+            setNotification("Gracias por su compra", "success", 4)
             setTimeout(() => {
                 navigate("/")
             }, 5000)
