@@ -8,8 +8,6 @@ const Contact = () => {
     // const [error, setError] = useState()
 
     const handleChange = (e) => {
-        // const input = e.target.name;
-        // const value = e.target.value;
         const {name, value} = e.target
         validateForm(e)
         setInputs(values => ({ ...values, [name]: value }))
@@ -32,7 +30,7 @@ const Contact = () => {
     }
 
     const handleSubmit = (e) => {
-        validateForm(e)
+        // validateForm(e)
         e.preventDefault();
     }
 
