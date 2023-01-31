@@ -26,7 +26,6 @@ const Home = () => {
     }, [])
 
     if(loading){
-        console.log("cargando");
         return <Loading />
     }
 

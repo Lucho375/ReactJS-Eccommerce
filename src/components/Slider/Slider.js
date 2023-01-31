@@ -17,7 +17,6 @@ const Slider = ({ arr, autoSlide = false }) => {
             }, 5000)
             return () => clearInterval(auto)
         }
-
     }, [currentIndex])
 
     const prevSlide = () => {

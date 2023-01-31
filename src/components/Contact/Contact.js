@@ -1,11 +1,14 @@
+import { useContext } from "react";
 import { useEffect, useState } from "react";
 import Button from "../Button/Button";
+import { NotificationContext } from "../Notification/NotificationService";
 import "./Contact.scss";
 import InputLabel from "./InputLabel";
 
 const Contact = () => {
     const [inputs, setInputs] = useState({})
     // const [error, setError] = useState()
+    const setNotification = useContext(NotificationContext)
 
     const handleChange = (e) => {
         const {name, value} = e.target
@@ -31,6 +34,8 @@ const Contact = () => {
 
     const handleSubmit = (e) => {
         // validateForm(e)
+        setNotification("Enviado", "success", 3)
+        setInputs({})
         e.preventDefault();
     }
 
