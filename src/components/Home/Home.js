@@ -1,5 +1,6 @@
 import { collection, getDocs } from "firebase/firestore"
 import { useState, useEffect } from "react"
+import { useTitle } from "../../hooks/useTitle";
 import { db } from "../../services/firebase/firebaseConfig"
 import Loading from "../Loading/Loading";
 import Slider from "../Slider/Slider";
@@ -7,7 +8,7 @@ import Slider from "../Slider/Slider";
 const Home = () => {
     const [images, setImages] = useState([])
     const [loading, setLoading] = useState(true)
-
+    useTitle("Ecommerce");
     useEffect(() => {
         setLoading(true)
         const database = collection(db, "products")

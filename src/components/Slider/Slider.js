@@ -3,41 +3,10 @@ import left from "./left.png"
 import right from "./right.png"
 import "./Slider.scss"
 import SliderSelect from "./SliderSelect";
+import { SliderLogic } from "./SliderLogic";
 
 const Slider = ({ arr, autoSlide = false }) => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [active, setActive] = useState("slider__container__img--active")
-
-    useEffect(() => {
-        if (autoSlide) {
-            const lastImage = currentIndex === arr.length - 1;
-            const newIndex = lastImage ? 0 : currentIndex + 1;
-            const auto = setInterval(() => {
-                setCurrentIndex(newIndex)
-            }, 5000)
-            return () => clearInterval(auto)
-        }
-    }, [currentIndex])
-
-    const prevSlide = () => {
-        const firstImage = currentIndex === 0;
-        const newIndex = firstImage ? arr.length - 1 : currentIndex - 1;
-        setActive("")
-        setTimeout(() => {
-            setCurrentIndex(newIndex)
-            setActive(active)
-        }, 600)
-    }
-
-    const nextSlide = () => {
-        const lastImage = currentIndex === arr.length - 1;
-        const newIndex = lastImage ? 0 : currentIndex + 1;
-        setActive("")
-        setTimeout(() => {
-            setCurrentIndex(newIndex)
-            setActive(active)
-        }, 600)
-    }
+    const {currentIndex, prevSlide, nextSlide, active, setCurrentIndex} = SliderLogic(arr, autoSlide);
 
     return (
         <div>

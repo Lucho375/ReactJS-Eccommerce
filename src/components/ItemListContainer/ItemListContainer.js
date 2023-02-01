@@ -1,31 +1,19 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Loading from "../Loading/Loading"
 import ItemList from "../ItemList/ItemList";
-import { getDocs, collection, query, where } from "firebase/firestore";
-import { db } from "../../services/firebase/firebaseConfig";
+import { useAsync } from "../../hooks/useAsync";
+import { getProducts } from "../../services/firebase/firestore/products";
+import { useTitle } from "../../hooks/useTitle";
 
 const ItemListContainer = ({ greeting }) => {
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true)
-    const { categoryId } = useParams()
+    const { categoryId } = useParams();
+    const getProductsWithCategory = () => getProducts(categoryId);
+    const { data: products, error, loading } = useAsync(getProductsWithCategory, [categoryId]);
+    useTitle(categoryId || "Todos los productos", [categoryId])
 
-    useEffect(() => {
-        setLoading(true)
-        const database = collection(db, "products")
-        const productsQuery = where('category', '==', categoryId)
-        const productsFromFirestore = categoryId ? query(database, productsQuery ) : database
-
-        getDocs(productsFromFirestore).then(response => {
-            const { docs } = response;
-            const firestoreProducts = docs.map(doc => {
-                const data = doc.data()
-                return { id: doc.id, ...data }
-            })
-            setProducts(firestoreProducts);
-        }).catch(err => console.log(err))
-            .finally(() => setLoading(false))
-    }, [categoryId])
+    if (error) {
+        return <h1>Hubo un error al cargar los productos.</h1>
+    }
 
     return (
         <div>

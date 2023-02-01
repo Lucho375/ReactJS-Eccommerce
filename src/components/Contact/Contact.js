@@ -1,7 +1,8 @@
 import { useContext } from "react";
-import { useEffect, useState } from "react";
-import Button from "../Button/Button";
+import { useState } from "react";
+import { useTitle } from "../../hooks/useTitle";
 import { NotificationContext } from "../Notification/NotificationService";
+import Button from "../Button/Button";
 import "./Contact.scss";
 import InputLabel from "./InputLabel";
 
@@ -9,9 +10,10 @@ const Contact = () => {
     const [inputs, setInputs] = useState({})
     // const [error, setError] = useState()
     const setNotification = useContext(NotificationContext)
+    useTitle("Contacto", []);
 
     const handleChange = (e) => {
-        const {name, value} = e.target
+        const { name, value } = e.target
         validateForm(e)
         setInputs(values => ({ ...values, [name]: value }))
     }
