@@ -1,7 +1,7 @@
 import Navbar from './components/Navbar/Navbar';
 import { BrowserRouter, } from 'react-router-dom';
 import { CartProvider } from './Context/CartContext';
-import { NotificationProvider } from './components/Notification/NotificationService';
+import { NotificationProvider } from './Context/NotificationContext';
 import AppRoutes from './Routes/AppRoutes';
 import Footer from "./components/Footer/Footer"
 

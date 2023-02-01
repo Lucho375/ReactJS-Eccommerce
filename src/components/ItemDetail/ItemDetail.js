@@ -5,7 +5,7 @@ import ItemCount from "../ItemCount/ItemCount";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../Context/CartContext";
-import { NotificationContext } from "../Notification/NotificationService";
+import { NotificationContext } from "../../Context/NotificationContext";
 import { useTitle } from "../../hooks/useTitle";
 
 const ItemDetail = ({ id, images, name, price, stock }) => {
@@ -27,7 +27,7 @@ const ItemDetail = ({ id, images, name, price, stock }) => {
                 <h2 className="card__title">{name}</h2>
                 <span className="card__price">Precio: us${price}</span>
                 {
-                    isInCart(id) ? (<Link to="/cart"><Button text={"Terminar Compra"}></Button></Link>) : <ItemCount stock={stock} onAdd={handleAdd} />
+                    isInCart(id) ? (<Link to="/cart"><Button>Terminar Compra</Button></Link>) : <ItemCount stock={stock} onAdd={handleAdd} />
                 }
             </div>
         </div>

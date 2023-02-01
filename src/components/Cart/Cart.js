@@ -14,7 +14,7 @@ const Cart = () => {
                 <>
                     <h1 className="cart__container__title">No hay productos en el carrito.</h1>
                     <Link to="/products">
-                        <Button text="Seguir comprando" />
+                        <Button>Seguir comprando</Button>
                     </Link>
                 </>
                 :
@@ -28,7 +28,7 @@ const Cart = () => {
                             Total a pagar: ${cart.reduce((acum, e) => (e.price * e.quantity) + acum, 0)}
                         </h2>
                         <Link to="/checkout">
-                            <Button text={"Finalizar compra"}></Button>
+                            <Button>Finalizar compra</Button>
                         </Link>
                     </div>
                 </>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export const SliderLogic = (arr,autoSlide) => {
+export const useSlider = (arr,autoSlide) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [active, setActive] = useState("slider__container__img--active")
 

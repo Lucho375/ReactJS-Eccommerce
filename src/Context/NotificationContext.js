@@ -1,25 +1,6 @@
 import { useState, createContext } from 'react';
+import Notification from '../components/Notification/Notification';
 export const NotificationContext = createContext();
-
-const Notification = ({ message, type }) => {
-    const notificationStyle = {
-        position: "absolute",
-        top: 120,
-        right: 50,
-        fontWeight: "bold",
-        backgroundColor: type === "success" ? "rgb(46, 125, 50)" : "red",
-        color: "white",
-        borderRadius: 5,
-        padding: "10px 20px 10px 20px",
-    }
-    if (!message) return null
-
-    return (
-        <div style={notificationStyle}>
-            {message}
-        </div>
-    )
-}
 
 export const NotificationProvider = ({ children }) => {
     const [message, setMessage] = useState("")

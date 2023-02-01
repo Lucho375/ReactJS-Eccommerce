@@ -3,11 +3,11 @@ import { useState } from "react";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../Context/CartContext";
-import { useForm } from "../../hooks/hooks";
+import { useForm } from "../../hooks/useForm";
 import { db } from "../../services/firebase/firebaseConfig";
 import Button from "../Button/Button";
 import InputLabel from "../Contact/InputLabel";
-import { NotificationContext } from "../Notification/NotificationService";
+import {NotificationContext} from "../../Context/NotificationContext"
 
 const Checkout = () => {
     const [loading, setLoading] = useState(false);
@@ -117,7 +117,7 @@ const Checkout = () => {
                     Telefono
                 </InputLabel>
             </form>
-            <Button onClick={createOrder} text="Generar orden" />
+            <Button onClick={createOrder}>Generar orden</Button>
         </>
     )
 }

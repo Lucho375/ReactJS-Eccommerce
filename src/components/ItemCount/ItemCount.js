@@ -20,7 +20,7 @@ const ItemCount = ({ initial = 1, stock = 0, onAdd }) => {
                 <button onClick={handleClickRes} className="item__counter__counts">-</button>
                 <button onClick={handleClickAdd} className="item__counter__counts">+</button>
                 <div style={{ marginTop: "5px" }}>
-                    <Button text={"Agregar al carrito"} onClick={() => onAdd(quantity)} />
+                    <Button onClick={() => onAdd(quantity)}>Agregar al carrito</Button>
                 </div>
             </div>
         </>

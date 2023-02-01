@@ -1,44 +1,31 @@
 import { useContext } from "react";
-import { useState } from "react";
 import { useTitle } from "../../hooks/useTitle";
-import { NotificationContext } from "../Notification/NotificationService";
+import { NotificationContext } from "../../Context/NotificationContext";
 import Button from "../Button/Button";
 import "./Contact.scss";
 import InputLabel from "./InputLabel";
+import { useForm } from "../../hooks/useForm";
+
+const initialForm = 
+{
+    name: "",
+    lastName: "",
+    email: "",
+    message: "hola"
+}
 
 const Contact = () => {
-    const [inputs, setInputs] = useState({})
-    // const [error, setError] = useState()
     const setNotification = useContext(NotificationContext)
+    const { values, onChange , resetInputs, validForm } = useForm(initialForm)
     useTitle("Contacto", []);
 
-    const handleChange = (e) => {
-        const { name, value } = e.target
-        validateForm(e)
-        setInputs(values => ({ ...values, [name]: value }))
-    }
-
-    const validateForm = (e) => {
-        //Control para el nombre vacio
-        if (e.target.name === "name" && e.target.value === "") {
-            console.log("input Nombre vacio")
-        }
-
-        // if(!e.target.value.match(/[a-zA-Z]+/g)){
-        //     console.error("No se permiten numeros")
-        // }
-
-        //validar length del mensaje
-        if (e.target.value.length >= 140) {
-            console.log("excedido de caracterecs")
-        }
-    }
 
     const handleSubmit = (e) => {
-        // validateForm(e)
-        setNotification("Enviado", "success", 3)
-        setInputs({})
         e.preventDefault();
+        validForm(e)
+        // validateForm(e)
+        // setNotification("Enviado", "success", 3)
+        // setValues({})
     }
 
     return (
@@ -48,24 +35,24 @@ const Contact = () => {
                 <InputLabel
                     type="text"
                     name="name"
-                    onChange={handleChange}
-                    value={inputs.name || ""}
+                    onChange={onChange}
+                    value={values.name || ""}
                     placeholder="Ingresa tu nombre">
                     Nombre
                 </InputLabel>
                 <InputLabel
                     type="text"
                     name="lastName"
-                    onChange={handleChange}
-                    value={inputs.lastName || ""}
+                    onChange={onChange}
+                    value={values.lastName || ""}
                     placeholder="Ingresa tu apellido">
                     Apellido
                 </InputLabel>
                 <InputLabel
                     type="email"
                     name="email"
-                    onChange={handleChange}
-                    value={inputs.email || ""}
+                    onChange={onChange}
+                    value={values.email || ""}
                     placeholder="Ingresa tu email">
                     Email
                 </InputLabel>
@@ -73,10 +60,10 @@ const Contact = () => {
                     name="message"
                     rows="10"
                     cols="38"
-                    onChange={handleChange}
+                    onChange={onChange}
                     placeholder="Dejanos tu mensaje">
                 </textarea>
-                <Button text="Enviar" onClick={handleSubmit} />
+                <Button onClick={handleSubmit} >Enviar</Button>
             </form>
         </>
     )

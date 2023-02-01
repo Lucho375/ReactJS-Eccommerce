@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
 import left from "./left.png"
 import right from "./right.png"
 import "./Slider.scss"
 import SliderSelect from "./SliderSelect";
-import { SliderLogic } from "./SliderLogic";
+import { useSlider } from "../../hooks/useSlider";
 
 const Slider = ({ arr, autoSlide = false }) => {
-    const {currentIndex, prevSlide, nextSlide, active, setCurrentIndex} = SliderLogic(arr, autoSlide);
+    const {currentIndex, prevSlide, nextSlide, active, setCurrentIndex} = useSlider(arr, autoSlide);
 
     return (
         <div>

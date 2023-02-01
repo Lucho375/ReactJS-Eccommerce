@@ -3,7 +3,7 @@ import minus from "./minus.png"
 import remove from "./remove.png"
 import { useContext } from "react"
 import { CartContext } from "../../Context/CartContext"
-import { NotificationContext } from "../Notification/NotificationService"
+import {NotificationContext} from "../../Context/NotificationContext"
 import "./CartItem.scss";
 
 const CartItem = (item) => {

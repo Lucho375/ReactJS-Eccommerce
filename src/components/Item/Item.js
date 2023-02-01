@@ -17,7 +17,7 @@ const Item = ({ id, name, images, marca, stock }) => {
                 <p>{marca}</p>
                 {stock > 0 ? <p className="product__item__stock">Stock disponible : {stock}</p> : <p className="product__item__noStock">Sin stock</p>}
                 <Link to={`/detail/${id}`}>
-                    {stock ? <Button text={"Ver producto"} /> : <Button text={"Sin stock"} disabled={true} />}
+                    {stock ? <Button>Ver producto</Button> : <Button disabled={true}>Sin stock</Button>}
                 </Link>
             </div>
         </li>
