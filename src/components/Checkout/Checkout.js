@@ -117,7 +117,7 @@ const Checkout = () => {
                     Telefono
                 </InputLabel>
             </form>
-            <Button onClick={createOrder}>Generar orden</Button>
+            <Button onClick={createOrder}>Generar orden.</Button>
         </>
     )
 }
