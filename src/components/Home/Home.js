@@ -32,6 +32,8 @@ const Home = () => {
 
     return (
         <>
+        <h1>Bienvenido</h1>
+        <h2>Ultimos ingresos</h2>
             <Slider arr={images} autoSlide={true} />
         </>
     )

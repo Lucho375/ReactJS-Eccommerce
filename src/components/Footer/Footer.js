@@ -9,6 +9,7 @@ import mail from "./mail.png"
 const Footer = () => {
     return (
         <footer className="footer__container">
+
             <section className="footer__container__section">
 
                 <div>
