@@ -1,5 +1,6 @@
 import { getDocs, collection, query, where, getDoc, doc } from "firebase/firestore";
 import { db } from "../firebaseConfig"
+
 export const getProducts = (categoryId) => {
     return new Promise((resolve, reject) => {
         const database = collection(db, "products")

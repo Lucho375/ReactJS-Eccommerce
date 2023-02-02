@@ -1,13 +1,12 @@
-import { collection, query, where, documentId, getDocs, writeBatch, addDoc } from "firebase/firestore";
 import { useState } from "react";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../Context/CartContext";
 import { useForm } from "../../hooks/useForm";
-import { db } from "../../services/firebase/firebaseConfig";
 import Button from "../Button/Button";
-import InputLabel from "../Contact/InputLabel";
-import {NotificationContext} from "../../Context/NotificationContext"
+import Input from "../Input/Input";
+import { NotificationContext } from "../../Context/NotificationContext"
+import { createOrder } from "../../services/firebase/firestore/generateOrder";
 
 const Checkout = () => {
     const [loading, setLoading] = useState(false);
@@ -16,55 +15,35 @@ const Checkout = () => {
     const navigate = useNavigate();
     const { values, onChange, resetInputs } = useForm({});
     const [error, setError] = useState("");
-    const setNotification = useContext(NotificationContext)
+    const setNotification = useContext(NotificationContext);
 
     const handleChange = (e) => {
         onChange(e)
     }
 
-    const createOrder = async () => {
-        if (Object.entries(values).length === 0) return console.error("error")
-        setLoading(true)
-        const objOrder = { buyer: values, items: cart, total }
-
-        const batch = writeBatch(db);
-
-        const ids = cart.map(prod => prod.id)
-        const productsRef = query(collection(db, 'products'), where(documentId(), 'in', ids))
-        const outOfStock = []
-        const productsAddedToCartFromFirestore = await getDocs(productsRef);
-
-        const { docs } = productsAddedToCartFromFirestore;
-
-        docs.forEach(doc => {
-            const dataDoc = doc.data();
-            const stockDb = dataDoc.stock;
-            const productInCart = cart.find(prod => prod.id === doc.id)
-            const prodQuantity = productInCart.quantity
-            if (stockDb >= prodQuantity) {
-                batch.update(doc.ref, { stock: stockDb - prodQuantity })
-            } else {
-                outOfStock.push({ id: doc.id, ...dataDoc })
-            }
-        })
-
-        if (outOfStock.length === 0) {
-            await batch.commit();
-            const orderRef = collection(db, 'orders',)
-            const orderAdded = await addDoc(orderRef, objOrder)
-            const { id } = orderAdded
-            setOrder(id)
-            clearCart();
-            setLoading(false)
-            resetInputs();
-            setNotification("Gracias por su compra", "success", 4)
-            setTimeout(() => {
-                navigate("/")
-            }, 5000)
-        } else {
-            setLoading(false)
-            setError("Hay un producto sin stock, vuelva a productos");
-            clearCart();
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (Object.entries(values).length === 0) {
+            console.error("Error, inputs vacios")
+        }
+        else {
+            setLoading(true)
+            createOrder(values, cart, total)
+            .then(response => {
+                if(response === "Hay productos sin stock"){
+                    setError(response)
+                    setNotification(response, "error", 4)
+                }else{
+                    setOrder(response)
+                    setNotification("Gracias por su compra", "success", 4)
+                    setTimeout(()=>{
+                        navigate("/")
+                    },5000)
+                }
+                clearCart();
+                resetInputs();
+            })
+            .finally(()=> setLoading(false))
         }
     }
 
@@ -76,7 +55,7 @@ const Checkout = () => {
         return <h1>Numero de orden: {order}</h1>
     }
 
-    if(error){
+    if (error) {
         return <h1>{error}</h1>
     }
 
@@ -84,40 +63,40 @@ const Checkout = () => {
         <>
             <h1>Checkout</h1>
             <form className="contact__form">
-                <InputLabel
+                <Input
                     type="text"
                     name="name"
                     onChange={handleChange}
                     value={values.name || ""}
                     placeholder="Ingresa tu nombre">
                     Nombre
-                </InputLabel>
-                <InputLabel
+                </Input>
+                <Input
                     type="text"
                     name="lastName"
                     onChange={handleChange}
                     value={values.lastName || ""}
                     placeholder="Ingresa tu apellido">
                     Apellido
-                </InputLabel>
-                <InputLabel
+                </Input>
+                <Input
                     type="email"
                     name="email"
                     onChange={handleChange}
                     value={values.email || ""}
                     placeholder="Ingresa tu email">
                     Email
-                </InputLabel>
-                <InputLabel
+                </Input>
+                <Input
                     type="phone"
                     name="phone"
                     onChange={handleChange}
                     value={values.phone || ""}
                     placeholder="Ingresa tu Telefono">
                     Telefono
-                </InputLabel>
+                </Input>
             </form>
-            <Button onClick={createOrder}>Generar orden.</Button>
+            <Button onClick={(e)=> handleSubmit(e)}>Generar orden.</Button>
         </>
     )
 }

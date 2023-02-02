@@ -21,9 +21,6 @@ const Navbar = () => {
                     <li className="header__nav__list__item">
                         <NavLink className={({ isActive }) => isActive ? "header__nav__list__link--active" : "header__nav__list__link"} to="/products">Productos</NavLink>
                     </li>
-                    <li className="header__nav__list__item">
-                        <NavLink className={({ isActive }) => isActive ? "header__nav__list__link--active" : "header__nav__list__link"} to="/contact">Contacto</NavLink>
-                    </li>
                 </ul>
                 <CartWidget totalQuantity={totalQuantity} />
             </nav>
