@@ -49,8 +49,6 @@ export const useForm = (validForm) => {
                 return false
             }
         }
-        console.log("llego al true")
-        console.log(values)
         return true
     }
 
