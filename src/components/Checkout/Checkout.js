@@ -89,6 +89,7 @@ const Checkout = () => {
                     errorMessage={errors.phoneError}>
                     Telefono
                 </Input>
+                {errors.required && <span className="contact__form--required">Inputs requeridos</span>}
             </form>
             <Button onClick={(e) => handleSubmit(e)}>Generar orden.</Button>
         </>

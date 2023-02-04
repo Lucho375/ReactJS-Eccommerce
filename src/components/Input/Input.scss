@@ -5,7 +5,6 @@
     padding: 30px;
     height: 100%;
     color: white;
-
     button {
         margin-top: 20px;
     }
@@ -54,6 +53,10 @@
             left: 175px;
             animation: animate 300ms ease-in-out;
         }
+    }
+    &--required{
+        color: red;
+        animation: animate 300ms ease-in-out;
     }
 }
 
