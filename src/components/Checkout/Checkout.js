@@ -13,38 +13,28 @@ const Checkout = () => {
     const { cart, total, clearCart } = useContext(CartContext);
     const [order, setOrder] = useState("");
     const navigate = useNavigate();
-    const { values, onChange, resetInputs } = useForm({});
+    const { values, errors, handleSubmit, handleChange } = useForm(() => validForm());
     const [error, setError] = useState("");
     const setNotification = useContext(NotificationContext);
 
-    const handleChange = (e) => {
-        onChange(e)
-    }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (Object.entries(values).length === 0) {
-            console.error("Error, inputs vacios")
-        }
-        else {
-            setLoading(true)
-            createOrder(values, cart, total)
+    const validForm = () => {
+        setLoading(true)
+        createOrder(values, cart, total)
             .then(response => {
-                if(response === "Hay productos sin stock"){
+                if (response === "Hay productos sin stock") {
                     setError(response)
                     setNotification(response, "error", 4)
-                }else{
+                } else {
                     setOrder(response)
                     setNotification("Gracias por su compra", "success", 4)
-                    setTimeout(()=>{
+                    setTimeout(() => {
                         navigate("/")
-                    },5000)
+                    }, 5000)
                 }
                 clearCart();
-                resetInputs();
             })
-            .finally(()=> setLoading(false))
-        }
+            .finally(() => setLoading(false))
     }
 
     if (loading) {
@@ -67,36 +57,40 @@ const Checkout = () => {
                     type="text"
                     name="name"
                     onChange={handleChange}
-                    value={values.name || ""}
-                    placeholder="Ingresa tu nombre">
+                    value={values.name}
+                    placeholder="Ingresa tu nombre"
+                    errorMessage={errors.nameError}>
                     Nombre
                 </Input>
                 <Input
                     type="text"
                     name="lastName"
                     onChange={handleChange}
-                    value={values.lastName || ""}
-                    placeholder="Ingresa tu apellido">
+                    value={values.lastName}
+                    placeholder="Ingresa tu apellido"
+                    errorMessage={errors.lastNameError}>
                     Apellido
                 </Input>
                 <Input
                     type="email"
                     name="email"
                     onChange={handleChange}
-                    value={values.email || ""}
-                    placeholder="Ingresa tu email">
+                    value={values.email}
+                    placeholder="Ingresa tu email"
+                    errorMessage={errors.emailError}>
                     Email
                 </Input>
                 <Input
                     type="phone"
                     name="phone"
                     onChange={handleChange}
-                    value={values.phone || ""}
-                    placeholder="Ingresa tu Telefono">
+                    value={values.phone}
+                    placeholder="Ingresa tu Telefono"
+                    errorMessage={errors.phoneError}>
                     Telefono
                 </Input>
             </form>
-            <Button onClick={(e)=> handleSubmit(e)}>Generar orden.</Button>
+            <Button onClick={(e) => handleSubmit(e)}>Generar orden.</Button>
         </>
     )
 }

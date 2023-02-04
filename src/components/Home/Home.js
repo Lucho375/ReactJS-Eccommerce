@@ -2,6 +2,7 @@ import { collection, getDocs } from "firebase/firestore"
 import { useState, useEffect } from "react"
 import { useTitle } from "../../hooks/useTitle";
 import { db } from "../../services/firebase/firebaseConfig"
+import Form from "../Form";
 import Loading from "../Loading/Loading";
 import Slider from "../Slider/Slider";
 
@@ -26,14 +27,14 @@ const Home = () => {
         }).catch(err => console.log(err))
     }, [])
 
-    if(loading){
+    if (loading) {
         return <Loading />
     }
 
     return (
         <>
-        <h1>Bienvenido</h1>
-        <h2>Ultimos ingresos</h2>
+            <h1>Bienvenido</h1>
+            <h2>Ultimos ingresos</h2>
             <Slider arr={images} autoSlide={true} />
         </>
     )
