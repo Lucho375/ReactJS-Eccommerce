@@ -18,6 +18,7 @@ export const useForm = (validForm) => {
         const input = e.target.value.trim();
         const pattern = /^[A-Za-z]+(\s*[A-Za-z]+)*$/g
         const emailPattern = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+        const phonePattern = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/
 
         if (e.target.name === "name") {
             // Si coincide con la expresion regular, sin errores
@@ -49,6 +50,16 @@ export const useForm = (validForm) => {
                 return false
             }
         }
+
+        if (e.target.name === "phone") {
+            // Si coincide con la expresion regular, sin errores
+            if (phonePattern.test(input)) {
+                setErrors(prev => ({ ...prev, phoneError: false }))
+            } else {
+                setErrors(prev => ({ ...prev, phoneError: true }))
+                return false
+            }
+        }
         return true
     }
 
@@ -61,12 +72,11 @@ export const useForm = (validForm) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (!values.name || !values.lastName || !values.email) {
+        if (!values.name || !values.lastName || !values.email || !values.phone) {
             console.log("Inputs requeridos")
         } else {
-            if (errors.nameError === false && errors.lastNameError === false && errors.emailError === false) {
+            if (errors.nameError === false && errors.lastNameError === false && errors.emailError === false && errors.phoneError === false) {
                 validForm()
-                console.log("el formulario fue enviado") // ENVIADO...
             }
         }
     }
