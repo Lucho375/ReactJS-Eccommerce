@@ -59,7 +59,8 @@ const Checkout = () => {
                     onChange={handleChange}
                     value={values.name}
                     placeholder="Ingresa tu nombre"
-                    errorMessage={errors.nameError}>
+                    errorMessage={errors.nameError}
+                    required={errors.required}>
                     Nombre
                 </Input>
                 <Input
@@ -68,7 +69,8 @@ const Checkout = () => {
                     onChange={handleChange}
                     value={values.lastName}
                     placeholder="Ingresa tu apellido"
-                    errorMessage={errors.lastNameError}>
+                    errorMessage={errors.lastNameError}
+                    required={errors.required}>
                     Apellido
                 </Input>
                 <Input
@@ -77,7 +79,8 @@ const Checkout = () => {
                     onChange={handleChange}
                     value={values.email}
                     placeholder="Ingresa tu email"
-                    errorMessage={errors.emailError}>
+                    errorMessage={errors.emailError}
+                    required={errors.required}>
                     Email
                 </Input>
                 <Input
@@ -86,10 +89,10 @@ const Checkout = () => {
                     onChange={handleChange}
                     value={values.phone}
                     placeholder="Ingresa tu Telefono"
-                    errorMessage={errors.phoneError}>
+                    errorMessage={errors.phoneError}
+                    required={errors.required}>
                     Telefono
                 </Input>
-                {errors.required && <span className="contact__form--required">Inputs requeridos</span>}
             </form>
             <Button onClick={(e) => handleSubmit(e)}>Generar orden.</Button>
         </>

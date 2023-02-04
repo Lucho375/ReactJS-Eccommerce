@@ -12,11 +12,10 @@ export const useForm = (validForm) => {
         lastNameError: false,
         emailError: false,
         phoneError: false,
-        required: false,
     })
 
     const validateForm = (e) => {
-        const input = e.target.value.trim();
+        const input = e.target.value;
         const pattern = /^[A-Za-z]+(\s*[A-Za-z]+)*$/g
         const emailPattern = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
         const phonePattern = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/
@@ -24,7 +23,7 @@ export const useForm = (validForm) => {
         if (e.target.name === "name") {
             // Si coincide con la expresion regular, sin errores
             if (pattern.test(input)) {
-                setErrors(prev => ({ ...prev, nameError: false, required: false }))
+                setErrors(prev => ({ ...prev, nameError: false}))
             }
             else {
                 setErrors(prev => ({ ...prev, nameError: true }))
@@ -35,7 +34,7 @@ export const useForm = (validForm) => {
         if (e.target.name === "lastName") {
             // Si coincide con la expresion regular, sin errores
             if (pattern.test(input)) {
-                setErrors(prev => ({ ...prev, lastNameError: false, required: false }))
+                setErrors(prev => ({ ...prev, lastNameError: false}))
             } else {
                 setErrors(prev => ({ ...prev, lastNameError: true }))
                 return false
@@ -45,7 +44,7 @@ export const useForm = (validForm) => {
         if (e.target.name === "email") {
             // Si coincide con la expresion regular, sin errores
             if (emailPattern.test(input)) {
-                setErrors(prev => ({ ...prev, emailError: false, required: false }))
+                setErrors(prev => ({ ...prev, emailError: false}))
             } else {
                 setErrors(prev => ({ ...prev, emailError: true }))
                 return false
@@ -55,7 +54,7 @@ export const useForm = (validForm) => {
         if (e.target.name === "phone") {
             // Si coincide con la expresion regular, sin errores
             if (phonePattern.test(input)) {
-                setErrors(prev => ({ ...prev, phoneError: false, required: false }))
+                setErrors(prev => ({ ...prev, phoneError: false}))
             } else {
                 setErrors(prev => ({ ...prev, phoneError: true }))
                 return false
@@ -74,14 +73,15 @@ export const useForm = (validForm) => {
         e.preventDefault();
 
         if (!values.name || !values.lastName || !values.email || !values.phone) {
-            setErrors(prev => ({...prev, required: true}))
+            // setErrors(prev => ({ ...prev, required: true }))
+            setErrors(prev => ({ ...prev, nameError: true, lastNameError: true, emailError: true, phoneError: true }))
         } else {
             if (errors.nameError === false && errors.lastNameError === false && errors.emailError === false && errors.phoneError === false) {
                 validForm()
             }
         }
     }
-
+    
     return {
         values,
         errors,

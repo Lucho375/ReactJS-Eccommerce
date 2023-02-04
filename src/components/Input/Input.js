@@ -1,7 +1,9 @@
 import "./Input.scss";
+import ErrorOutlineOutlinedIcon from '@mui/icons-material/ErrorOutlineOutlined';
 
-const Input = ({children, onChange, name, type, value, placeholder, errorMessage}) => {
-    
+const Input = ({children, onChange, name, type, value, placeholder, errorMessage, required}) => {
+
+
     return (
         <label className="contact__form__label">
             <span>{children}</span>
@@ -10,9 +12,9 @@ const Input = ({children, onChange, name, type, value, placeholder, errorMessage
             name={name} 
             onChange={onChange} 
             value={value} 
-            className="contact__form__input" 
+            className="contact__form__input"
             placeholder={placeholder}/>
-            {errorMessage && <span className="contact__form__input--invalid">Caracteres invalidos</span>}
+            {errorMessage && <ErrorOutlineOutlinedIcon className="contact__form__input--invalid"/>}
         </label>
     )
 }

@@ -2,7 +2,6 @@ import { collection, getDocs } from "firebase/firestore"
 import { useState, useEffect } from "react"
 import { useTitle } from "../../hooks/useTitle";
 import { db } from "../../services/firebase/firebaseConfig"
-import Form from "../Form";
 import Loading from "../Loading/Loading";
 import Slider from "../Slider/Slider";
 
