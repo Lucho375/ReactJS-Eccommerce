@@ -16,10 +16,8 @@
         text-align: start;
         padding: 5px;
         font-size: 20px;
-
-        span {
-            margin-bottom: 8px;
-            padding: 5px;
+        &:has(.contact__form__input--invalid) .contact__form__input{
+            border: 1px solid red;
         }
     }
 
@@ -31,6 +29,7 @@
         color: white;
         border-radius: 5px;
         box-shadow: inset 0px;
+        position: relative;
 
         &:focus {
             outline: none;
@@ -41,11 +40,30 @@
         }
 
         &:-webkit-autofill,
-        :-webkit-autofill:hover, 
-        :-webkit-autofill:focus, 
-        :-webkit-autofill:active  {
+        :-webkit-autofill:hover,
+        :-webkit-autofill:focus,
+        :-webkit-autofill:active {
             -webkit-text-fill-color: white;
             -webkit-box-shadow: 0 0 0 30px rgb(14, 58, 109) inset !important;
         }
+
+        &--invalid {
+            color: red;
+            font-size: 15px;
+            position: relative;
+            left: 175px;
+            animation: animate 300ms ease-in-out;
+        }
+    }
+}
+
+@keyframes animate {
+
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1
     }
 }
