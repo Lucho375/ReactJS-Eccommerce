@@ -23,7 +23,7 @@ export const useForm = (validForm) => {
         if (e.target.name === "name") {
             // Si coincide con la expresion regular, sin errores
             if (pattern.test(input)) {
-                setErrors(prev => ({ ...prev, nameError: false}))
+                setErrors(prev => ({ ...prev, nameError: false }))
             }
             else {
                 setErrors(prev => ({ ...prev, nameError: true }))
@@ -34,7 +34,7 @@ export const useForm = (validForm) => {
         if (e.target.name === "lastName") {
             // Si coincide con la expresion regular, sin errores
             if (pattern.test(input)) {
-                setErrors(prev => ({ ...prev, lastNameError: false}))
+                setErrors(prev => ({ ...prev, lastNameError: false }))
             } else {
                 setErrors(prev => ({ ...prev, lastNameError: true }))
                 return false
@@ -44,7 +44,7 @@ export const useForm = (validForm) => {
         if (e.target.name === "email") {
             // Si coincide con la expresion regular, sin errores
             if (emailPattern.test(input)) {
-                setErrors(prev => ({ ...prev, emailError: false}))
+                setErrors(prev => ({ ...prev, emailError: false }))
             } else {
                 setErrors(prev => ({ ...prev, emailError: true }))
                 return false
@@ -54,7 +54,7 @@ export const useForm = (validForm) => {
         if (e.target.name === "phone") {
             // Si coincide con la expresion regular, sin errores
             if (phonePattern.test(input)) {
-                setErrors(prev => ({ ...prev, phoneError: false}))
+                setErrors(prev => ({ ...prev, phoneError: false }))
             } else {
                 setErrors(prev => ({ ...prev, phoneError: true }))
                 return false
@@ -73,15 +73,14 @@ export const useForm = (validForm) => {
         e.preventDefault();
 
         if (!values.name || !values.lastName || !values.email || !values.phone) {
-            // setErrors(prev => ({ ...prev, required: true }))
             setErrors(prev => ({ ...prev, nameError: true, lastNameError: true, emailError: true, phoneError: true }))
         } else {
-            if (errors.nameError === false && errors.lastNameError === false && errors.emailError === false && errors.phoneError === false) {
+            if ((errors.nameError, errors.lastNameError, errors.emailError, errors.phoneError) === false) {
                 validForm()
             }
         }
     }
-    
+
     return {
         values,
         errors,
