@@ -1,20 +1,23 @@
+import { motion, AnimatePresence } from "framer-motion";
+import "./Notification.scss"
 const Notification = ({ message, type }) => {
-    const notificationStyle = {
-        position: "absolute",
-        top: 120,
-        right: 50,
-        fontWeight: "bold",
-        backgroundColor: type === "success" ? "rgb(46, 125, 50)" : "red",
-        color: "white",
-        borderRadius: 5,
-        padding: "10px 20px 10px 20px",
+
+    const background = {
+        backgroundColor: type === "success" ? "rgb(46, 125, 50)" : "red"
     }
-    if (!message) return null
 
     return (
-        <div style={notificationStyle}>
-            {message}
-        </div>
+        <AnimatePresence>
+            {message && (
+                <motion.div
+                    className="notification"
+                    style={background}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                >{message}</motion.div>
+            )}
+        </AnimatePresence>
     )
 }
 
