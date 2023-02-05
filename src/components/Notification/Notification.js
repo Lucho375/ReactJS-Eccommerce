@@ -3,7 +3,7 @@ import "./Notification.scss"
 const Notification = ({ message, type }) => {
 
     const background = {
-        backgroundColor: type === "success" ? "rgb(46, 125, 50)" : "red"
+        backgroundColor: type === "success" ? "rgb(46, 125, 50)" : "#F51212"
     }
 
     return (
