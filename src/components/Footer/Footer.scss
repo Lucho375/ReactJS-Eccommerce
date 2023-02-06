@@ -10,7 +10,6 @@
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         place-items: center;
-        // align-items: center;
     }
 
     &__payments {
@@ -28,10 +27,12 @@
         width: 30px;
         height: 30px;
     }
-    &__sections{
+
+    &__sections {
         display: flex;
         align-items: center;
-        p{
+
+        p {
             padding-left: 10px;
         }
     }
@@ -43,4 +44,83 @@
 
 div h3 {
     margin-bottom: 15px;
+}
+
+@media only screen and (min-width: 320px) {
+    .footer__container {
+        width: 100%;
+        height: 300px;
+        padding: 15px;
+        margin-top: 2rem;
+
+        &__section {
+            height: 200px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            place-items: center;
+            gap: 20px;
+        }
+
+        &__payments {
+            &__card {
+                width: 45px;
+                padding: 0 3px;
+                border-radius: 5px;
+            }
+        }
+
+        h3 {
+            font-size: 16px;
+        }
+    }
+
+    .footer__contact {
+
+        &__logos {
+            width: 25px;
+            height: 25px;
+        }
+
+        &__sections {
+            display: flex;
+            align-items: center;
+
+            p {
+                padding-left: 10px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .footer__container {
+        height: 210px;
+        padding: 5px;
+
+        &__section {
+            height: 200px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            place-items: center;
+            gap: 10px;
+        }
+
+        &__payments {
+            &__card {
+                width: 50px;
+            }
+        }
+
+        h3 {
+            font-size: 18px;
+        }
+    }
+
+    .footer__contact {
+
+        &__logos {
+            width: 28px;
+            height: 28px;
+        }
+    }
 }

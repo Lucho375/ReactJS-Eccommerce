@@ -35,3 +35,38 @@
         }
     }
 }
+
+@media only screen and (min-width: 300px) and (max-width: 800px) {
+    .filter__container {
+        margin: 10px 0;
+        padding: 10px;
+
+        &__categorys {
+            display: flex;
+            flex-direction: column;
+
+            li{
+                max-width: max-content;
+                margin: 0 0 10px;
+            }
+
+            &--remove {
+                padding: 3px;
+                font-size: 14px;
+                margin: 0px;
+            }
+
+            &__link {
+                padding: 2px;
+                margin: 0px;
+                font-size: 14px;
+            }
+
+            &__link--active {
+                padding: 2px;
+                font-size: 14px;
+                margin: 0px;
+            }
+        }
+    }
+}

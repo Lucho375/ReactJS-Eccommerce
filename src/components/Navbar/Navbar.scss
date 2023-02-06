@@ -43,3 +43,37 @@
         }
     }
 }
+
+@media only screen and (min-width: 300px) and (max-width: 500px) {
+    .header {
+        margin-bottom: 2rem;
+
+        &__nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #2C74B3;
+            height: 90px;
+
+            h1 {
+                font-size: 16px;
+            }
+
+            &__list {
+                &__item {
+                    padding: 0 3px;
+                }
+
+                &__link {
+                    color: white;
+                    font-size: 14px;
+
+                    &--active {
+                        padding: 5px;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}
