@@ -22,10 +22,10 @@
 
 @media only screen and (min-width: 320px) and (max-width: 800px){
     .card {
-        width: 400px;
+        width: 300px;
 
         &__content {
-            padding: 10px;
+            padding:10px;
         }
 
         &__title {
@@ -39,7 +39,7 @@
             padding: 50px;
         }
 
-        button {
+        button:has(.button) {
             width: 100px;
             font-size: 10px;
         }

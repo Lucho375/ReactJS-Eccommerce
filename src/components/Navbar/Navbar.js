@@ -6,8 +6,8 @@ import "./Navbar.scss";
 
 const Navbar = () => {
 
-    const { totalQuantity } = useContext(CartContext)
-
+    const { totalQuantity } = useContext(CartContext);
+    
     return (
         <header className="header">
             <nav className="header__nav">

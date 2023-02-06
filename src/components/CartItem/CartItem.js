@@ -15,7 +15,7 @@ const CartItem = (item) => {
         removeItemCart(e.id)
         setNotification(`Borrado ${e.name} del carrito`, "success", 2)
     }
-
+    
     const handleClickDecrease = (prod) => {
         decreaseQuantity(prod)
     }
@@ -27,7 +27,7 @@ const CartItem = (item) => {
             setNotification(`No hay mas stock de ${prod.name}`, "error", 2)
         }
     }
-
+    
     return (
         <div className="cart__item">
             <img src={item.images[0]} className="cart__item__image" />
