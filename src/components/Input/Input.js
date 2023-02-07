@@ -6,7 +6,7 @@ const Input = ({children, onChange, name, type, value, placeholder, errorMessage
 
     return (
         <label className="contact__form__label">
-            <span>{children}</span>
+            <span className="contact__form__label__title">{children}</span>
             <input 
             type={type} 
             name={name} 

@@ -13,9 +13,13 @@
         padding: 5px;
         font-size: 20px;
         position: relative;
+
         &:has(.contact__form__input--invalid) .contact__form__input {
-            border: 1px solid red;
-            animation: animate 300ms ease-in-out;
+            border: 1px solid rgba(255, 0, 0, 0.600);
+        }
+
+        &__title {
+            padding: 0 0 10px;
         }
     }
 
@@ -51,12 +55,9 @@
 }
 
 @keyframes animate {
-
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1
-    }
+    0% { transform: scale(1); }
+    25% { transform: scale(1.1)}
+    50% { transform: scale(1)}
+    75% { transform: scale(1.1)}
+    100% { transform: scale(1)}
 }
