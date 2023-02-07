@@ -72,15 +72,16 @@ export const useForm = (validForm) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (!values.name || !values.lastName || !values.email || !values.phone) {
-            setErrors(prev => ({ ...prev, nameError: true, lastNameError: true, emailError: true, phoneError: true }))
-        } else {
-            if ((errors.nameError, errors.lastNameError, errors.emailError, errors.phoneError) === false) {
-                validForm()
-            }
+        const { name, lastName, email, phone } = values;
+        if (!name) setErrors(prev => ({ ...prev, nameError: true }))
+        if (!lastName) setErrors(prev => ({ ...prev, lastNameError: true }))
+        if (!email) setErrors(prev => ({ ...prev, emailError: true }))
+        if (!phone) setErrors(prev => ({ ...prev, phoneError: true }))
+        if ((errors.nameError, errors.lastNameError, errors.emailError, errors.phoneError) === false) {
+            validForm()
         }
     }
-    
+
     return {
         values,
         errors,
